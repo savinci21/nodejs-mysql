@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <tr>
+           
+            <td>num</td>
+            <td>id</td>
+            <td>pw</td>
+            <td>name</td>
+        </tr>
+        <tr>
+            <% for(let i=0; i<data.length; i++) {%>
+            <td><%= data[i]['num']%></td>
+            <td><%= data[i]['id']%></td>
+            <td><%= data[i]['pw']%></td>
+            <td><%= data[i]['name']%></td>
+           
+        </tr>
+        <% } %>
+    </table>
+</body>
+</html>
