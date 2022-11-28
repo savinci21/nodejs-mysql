@@ -1,7 +1,12 @@
 const express = require('express')
-const mysql = require('mysql')
+const mysql = require('mysql');
 const app = express()
-const port = 8000
+const port = 3000
+const cors = require('cors');
+ 
+app.use(cors({
+    origin: '*', // 모든 출처 허용 옵션. true 를 써도 된다.
+}));
 
 
 const connection = mysql.createConnection({  
@@ -30,7 +35,17 @@ app.get('/list', (req, res) => {
     connection.query('SELECT * from User', (error, rows, fields) => {
         if (error) throw error;
         res.render('list',{'data':rows})
-      });
+      })
+
+    //   res.render('list')
+    // res.sendFile(__dirname + 'index.html')
+})
+
+app.get('/api/list', (req, res) => {
+    connection.query('SELECT * from User', (error, rows, fields) => {
+        if (error) throw error;
+        res.send(rows)
+      })
 
     //   res.render('list')
     // res.sendFile(__dirname + 'index.html')
